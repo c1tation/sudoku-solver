@@ -1,6 +1,7 @@
 from sudoku_reader import Sudoku_reader
 import random
 from board import Board
+import datetime
 
 class SudokuBoard(Board):
     def __init__(self, nums):
@@ -143,14 +144,22 @@ class Square:
 
 if __name__ == "__main__":
     # IMPORTANT !!!: Change file path if necessary !!!!!
-    reader = Sudoku_reader("sudoku_100.csv")
+    reader = Sudoku_reader("sudoku/sudoku_1M.csv")
     # Read text above if the program does not run
     solved = 0
+    t1 = datetime.datetime.now()
     while True:
-        next_board = reader.next_board()
+        try:
+            next_board = reader.next_board()
+        except ValueError:
+            break
         board = SudokuBoard(next_board)
-        print(board) # Board before solving
+        #print(board) # Board before solving
         board.solve() # Solve the board
         solved += 1
-        print(board) # Board after solving
+        #print(board) # Board after solving
         print("Nr solved: ", solved)
+    t2 = datetime.datetime.now()
+    dt = t2 - t1
+    print("Time run", dt)
+    

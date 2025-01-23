@@ -81,7 +81,7 @@ def place_square(board):
 
 if __name__ == '__main__':
     # IMPORTANT !!!: Change file path if necessary !!!!!
-    reader = Sudoku_reader("sudoku_10.csv")
+    reader = Sudoku_reader("sudoku/sudoku_10.csv")
     # Read text above if the program does not run
 
 

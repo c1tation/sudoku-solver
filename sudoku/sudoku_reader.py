@@ -17,8 +17,9 @@ class Sudoku_reader:
                     sym_num += 1
             return board
         except:
-            print("Reading error")
-            quit(-1)
+            #print("Reading error")
+            #quit(-1)
+            raise ValueError("bruh")
 
 if __name__ == "__main__":
     # Test code to see the format
